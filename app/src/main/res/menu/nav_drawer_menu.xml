@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/PerfilID"
+        android:title="Perfil" />
+    <item
+        android:id="@+id/MenuPrincipalID"
+        android:title="Menu Principal"/>
+    <item
+        android:id="@+id/MenuDiaID"
+        android:title="Menu del dia"/>
+    <item
+        android:id="@+id/CartaID"
+        android:title="Carta"/>
+    <item
+        android:id="@+id/MesasID"
+        android:title="Mesas"/>
+    <item
+        android:id="@+id/ContactoID"
+        android:title="Contacto"/>
+    <item
+        android:id="@+id/CarritoID"
+        android:title="Carrito"/>
+    <item
+        android:id="@+id/TuPedidoID"
+        android:title="Tu pedido"/>
+    <item
+        android:id="@+id/TuMesaID"
+        android:title="Tu Mesa"/>
+    <item
+        android:id="@+id/SalirID"
+        android:title="Salir"/>
+
+</menu>

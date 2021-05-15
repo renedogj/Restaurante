@@ -1,5 +1,5 @@
 package com.example.restaurante
-
+//Esta clase es para poder guardar las variables en la base de datos
 class Usuario {
     var nombre: String? = null
     var edad: String? = null

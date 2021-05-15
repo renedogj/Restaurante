@@ -10,7 +10,9 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 
 class Registro : AppCompatActivity(), View.OnClickListener {
@@ -104,6 +106,11 @@ class Registro : AppCompatActivity(), View.OnClickListener {
                                     Toast.LENGTH_LONG
                                 ).show()
                                 progressBar!!.visibility = View.GONE
+                                val user = Firebase.auth.currentUser
+                                user.sendEmailVerification()
+                                    .addOnCompleteListener { task ->
+                                        Toast.makeText(this, "Comprueba tu correo para verificar la cuenta", Toast.LENGTH_LONG).show()
+                                    }
                             } else {
                                 Toast.makeText(
                                     this@Registro,

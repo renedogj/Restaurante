@@ -28,6 +28,7 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="Introduce tu correo"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -40,19 +41,19 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="contraseña"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_user_et1" />
 
     <Button
         android:id="@+id/iniciarSesisonGoogle"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="47dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
-        android:background="#FFFFFF"
-        android:text="Iniciar sesion con Google"
+        android:background="@drawable/googleimg"
         android:textAllCaps="false"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +79,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#FF7700"
             android:ems="6"
+            android:textColor="@color/white"
             android:text="Salir"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -93,6 +95,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#FF7700"
             android:ems="6"
+            android:textColor="@color/white"
             android:text="Iniciar"
             android:textSize="15dp"
             android:textStyle="bold" />

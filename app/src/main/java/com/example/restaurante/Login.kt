@@ -80,6 +80,12 @@ class Login : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            startActivity(Intent(applicationContext, Menu::class.java))
+            Toast.makeText(this@Login, "Sesion iniciada", Toast.LENGTH_LONG).show()
+        }
+
         iniciarSesisonGoogle?.setOnClickListener {
             signIn()
         }
@@ -115,24 +121,16 @@ class Login : AppCompatActivity() {
         mAuth!!.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful){
-
                     val user = FirebaseAuth.getInstance().currentUser
-
                     if(user.isEmailVerified){
                         startActivity(Intent(applicationContext, Menu::class.java))
                         Toast.makeText(this@Login, "Sesion iniciada", Toast.LENGTH_LONG).show()
-
                     }else{
                         user.sendEmailVerification()
                         Toast.makeText(this@Login, "Comprueba tu correo para verificar la cuenta", Toast.LENGTH_LONG).show()
-
                     }
-
-
-
                 }else{
                     Toast.makeText(this@Login, "Error al iniciar sesion, comprueba tus credenciales", Toast.LENGTH_LONG).show()
-
                 }
             }
     }
@@ -174,6 +172,7 @@ class Login : AppCompatActivity() {
                     Log.d("SingInActivity", "signInWithCredential:success")
                     val user = mAuth?.currentUser
                     Toast.makeText(this,"Auntenticado con google",Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(applicationContext, Menu::class.java))
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("SingInActivity", "signInWithCredential:failure", task.exception)

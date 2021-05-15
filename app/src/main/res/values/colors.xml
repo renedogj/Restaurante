@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
     <color name="naranjita">#FFFFCCBC</color>
+    <color name="naranja1">#ff0004</color>
+    <color name="naranja2">#F4511E</color>
+
 </resources>
