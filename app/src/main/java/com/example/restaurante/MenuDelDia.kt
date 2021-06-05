@@ -50,7 +50,7 @@ class MenuDelDia : AppCompatActivity(), IPlatoLoadListener, IMenuLoadListener {
                 R.id.PerfilID -> startActivity(Intent(applicationContext, Perfil::class.java))
                 R.id.MenuPrincipalID -> startActivity(Intent(applicationContext, Menu::class.java))
                 R.id.MenuDiaID -> startActivity(Intent(applicationContext, MenuDelDia::class.java))
-                R.id.CartaID -> startActivity(Intent(applicationContext, Carta::class.java))
+                R.id.CartaID -> startActivity(Intent(applicationContext, Bebidas::class.java))
                 R.id.MesasID -> startActivity(Intent(applicationContext, Mesas::class.java))
                 R.id.ContactoID -> startActivity(Intent(applicationContext, Contacto::class.java))
                 R.id.CarritoID -> startActivity(Intent(applicationContext, Carrito::class.java))
