@@ -23,12 +23,6 @@
         android:id="@+id/CarritoID"
         android:title="Carrito"/>
     <item
-        android:id="@+id/TuPedidoID"
-        android:title="Tu pedido"/>
-    <item
-        android:id="@+id/TuMesaID"
-        android:title="Tu Mesa"/>
-    <item
         android:id="@+id/SalirID"
         android:title="Salir"/>
 

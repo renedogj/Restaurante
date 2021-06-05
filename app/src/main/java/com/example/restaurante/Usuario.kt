@@ -1,16 +1,11 @@
 package com.example.restaurante
 //Esta clase es para poder guardar las variables en la base de datos
-class Usuario {
-    var nombre: String? = null
-    var edad: String? = null
-    var email: String? = null
-
-    constructor() {
-
-    }
-    constructor(nombre: String?, edad: String?, email: String?) {
-        this.nombre = nombre
-        this.edad = edad
-        this.email = email
-    }
-}
+class Usuario (
+    val nombreUsuario: String? = null,
+    val apellidos:String?=null,
+    val correo: String? = null,
+    var usuarioId: String? = null,
+    val contrasena: String? = null,
+    val imagen:String?=null,
+    val descripcion:String?=null
+)

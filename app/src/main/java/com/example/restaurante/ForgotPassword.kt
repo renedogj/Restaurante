@@ -1,5 +1,6 @@
 package com.example.restaurante
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -14,7 +15,7 @@ class ForgotPassword : AppCompatActivity() {
 
     private var emailEditText: EditText? = null
     private var resetPasswordButton: Button? = null
-    private var progressBar: ProgressBar? = null
+    private var salirbtn: Button? = null
 
     private var auth: FirebaseAuth? = null
 
@@ -24,13 +25,18 @@ class ForgotPassword : AppCompatActivity() {
 
         emailEditText = findViewById(R.id.email)
         resetPasswordButton = findViewById(R.id.resetPassword)
-        progressBar = findViewById(R.id.progressBar)
+        salirbtn = findViewById(R.id.salirr)
 
         auth = FirebaseAuth.getInstance()
 
+        salirbtn?.setOnClickListener {
+            startActivity(Intent(applicationContext, Login::class.java))
+
+        }
         resetPasswordButton?.setOnClickListener {
             resetPassword()
         }
+
     }
 
     private fun resetPassword() {
@@ -48,7 +54,6 @@ class ForgotPassword : AppCompatActivity() {
             return
         }
 
-        progressBar!!.visibility = View.VISIBLE
         auth!!.sendPasswordResetEmail(email).addOnCompleteListener { task ->
 
             if(task.isSuccessful){

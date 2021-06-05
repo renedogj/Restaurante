@@ -21,7 +21,7 @@
         android:textSize="40sp"/>
 
     <EditText
-        android:id="@+id/etNombre"
+        android:id="@+id/nombre_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -32,18 +32,19 @@
         app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <EditText
-        android:id="@+id/etEdad"
+        android:id="@+id/nickname_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Edad"
+        android:inputType="textPersonName"
+        android:hint="Nombre de usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/nombre_texto" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/email_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -52,10 +53,10 @@
         android:hint="E-mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEdad" />
+        app:layout_constraintTop_toBottomOf="@+id/nickname_texto" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/contraseña_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -64,7 +65,7 @@
         android:hint="contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/email_texto" />
 
 
 
@@ -72,8 +73,8 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/etEdad"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_texto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -85,11 +86,11 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintTop_toBottomOf="@+id/contraseña_texto"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/AceptarBtn"
+            android:id="@+id/registrarse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -97,7 +98,8 @@
             android:ems="6"
             android:textColor="@color/white"
             android:text="Aceptar"
-            android:backgroundTint="#FF7700"
+            android:background="@drawable/degradado"
+            android:backgroundTint="@color/naranja2"
             android:textSize="10dp"
             android:textStyle="bold"
             />
@@ -114,7 +116,8 @@
             android:ems="6"
             android:textColor="@color/white"
             android:text="Salir"
-            android:backgroundTint="#FF7700"
+            android:background="@drawable/degradado"
+            android:backgroundTint="@color/naranja2"
             android:textSize="10dp"
             android:textStyle="bold"
             />

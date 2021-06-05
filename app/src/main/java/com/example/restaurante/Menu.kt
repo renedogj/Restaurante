@@ -41,12 +41,10 @@ class Menu : AppCompatActivity() {
                 R.id.PerfilID -> startActivity(Intent(applicationContext, Perfil::class.java))
                 R.id.MenuPrincipalID -> startActivity(Intent(applicationContext, Menu::class.java))
                 R.id.MenuDiaID -> startActivity(Intent(applicationContext, MenuDelDia::class.java))
-                R.id.CartaID -> startActivity(Intent(applicationContext, Carta::class.java))
+                R.id.CartaID -> startActivity(Intent(applicationContext, Bebidas::class.java))
                 R.id.MesasID -> startActivity(Intent(applicationContext, Mesas::class.java))
                 R.id.ContactoID -> startActivity(Intent(applicationContext, Contacto::class.java))
                 R.id.CarritoID -> startActivity(Intent(applicationContext, Carrito::class.java))
-                R.id.TuPedidoID -> startActivity(Intent(applicationContext, TuPedido::class.java))
-                R.id.TuMesaID -> startActivity(Intent(applicationContext, TuMesa::class.java))
                 R.id.SalirID -> startActivity(Intent(applicationContext, MainActivity::class.java))
             }
             true
@@ -62,13 +60,13 @@ class Menu : AppCompatActivity() {
             startActivity(Intent(applicationContext, MenuDelDia::class.java))
         }
         btnCarta?.setOnClickListener {
-            startActivity(Intent(applicationContext, Carta::class.java))
+            startActivity(Intent(applicationContext, Bebidas::class.java))
         }
         btnMesas?.setOnClickListener {
             startActivity(Intent(applicationContext, Mesas::class.java))
         }
         btnDelivery?.setOnClickListener {
-            startActivity(Intent(applicationContext, Carta::class.java))
+            startActivity(Intent(applicationContext, Bebidas::class.java))
         }
         btnContacto?.setOnClickListener {
             startActivity(Intent(applicationContext, Contacto::class.java))

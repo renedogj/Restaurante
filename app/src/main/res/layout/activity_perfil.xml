@@ -7,23 +7,120 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagenPerfil"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:clickable="false"
+            android:foreground="?android:attr/selectableItemBackground" />
 
         <TextView
-            android:id="@+id/textViewPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Perfil"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="22sp"
+            android:id="@+id/nombre_ImagenPerfil"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:textColor="@color/black"
+            android:enabled="false"
+            android:saveEnabled="false"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:id="@+id/nombrePerfil_texto"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellidos"
+            android:textColor="@color/black"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:layout_margin="10dp"
+            android:id="@+id/apellidosPerfil_texto"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:id="@+id/nicknamePerfil_texto"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:layout_margin="10dp"
+            android:enabled="false"
+            android:inputType="textEmailAddress"
+            android:id="@+id/correoPerfil_texto"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPassword"
+            android:id="@+id/contrasenaPerfil_texto"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hamburguesa es mi segundo nombre"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:enabled="false"
+            android:id="@+id/descripcion_texto"
+            android:backgroundTint="@color/naranja1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Editar Perfil"
+            android:textSize="18dp"
+            android:clickable="true"
+            android:textColor="#FF5722"
+            android:textStyle="bold"
+            android:id="@+id/editarPerfil_btn"
+            android:background="@color/naranjita"
+            android:layout_margin="10dp"/>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/naranja1"
+            android:visibility="invisible"
+            android:id="@+id/progressBar_cp"/>
+
+
+
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

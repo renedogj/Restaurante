@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setTheme(R.style.Theme_Restaurante)
+
         FAuth = FirebaseAuth.getInstance()
         Bt1 = findViewById(R.id.Bt1)
         Bt2 = findViewById(R.id.Bt2)
