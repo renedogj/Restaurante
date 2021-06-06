@@ -4,13 +4,12 @@ import java.util.HashMap
 
 class PlatoModel {
     var key: String? = null
-    lateinit var alergenos: HashMap<String?, String?>
+    var alergenos: HashMap<String?, String?>? = null
     var descripcion: String? = null
     var imagen: String? = null
-    lateinit var ingredientesEstandar: HashMap<String?, String?>
-    lateinit var ingredientesOpcionales: HashMap<String?, String?>
+    var ingredientes: HashMap<String?, String?>? = null
+    var ingredientesOpcionales: HashMap<String?, String?>? = null
     var nombre: String? = null
     var plato: String? = null
-    var precio: Float? = null
     var tipo: String? = null
 }

@@ -123,12 +123,12 @@ class Login : AppCompatActivity() {
                 if (task.isSuccessful){
                     val user = FirebaseAuth.getInstance().currentUser
                     if(user.isEmailVerified){
-                        startActivity(Intent(applicationContext, Menu::class.java))
                         Toast.makeText(this@Login, "Sesion iniciada", Toast.LENGTH_LONG).show()
                     }else{
                         user.sendEmailVerification()
                         Toast.makeText(this@Login, "Comprueba tu correo para verificar la cuenta", Toast.LENGTH_LONG).show()
                     }
+                    startActivity(Intent(applicationContext, Menu::class.java))
                 }else{
                     Toast.makeText(this@Login, "Error al iniciar sesion, comprueba tus credenciales", Toast.LENGTH_LONG).show()
                 }

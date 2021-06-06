@@ -52,7 +52,6 @@ class Contacto : AppCompatActivity() {
                 R.id.ContactoID -> startActivity(Intent(applicationContext, Contacto::class.java))
                 R.id.CarritoID -> startActivity(Intent(applicationContext, Carrito::class.java))
                 R.id.TuPedidoID -> startActivity(Intent(applicationContext, TuPedido::class.java))
-                R.id.TuMesaID -> startActivity(Intent(applicationContext, TuMesa::class.java))
                 R.id.SalirID -> startActivity(Intent(applicationContext, MainActivity::class.java))
             }
             true
@@ -100,14 +99,6 @@ class Contacto : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {//para que funcionen los clicks del menu hamburguesa
-        if (toggle.onOptionsItemSelected(item)){
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
     fun abrirMaps(geoLocation: Uri) {
         val intent = Intent(Intent.ACTION_VIEW).apply {
             data = geoLocation
@@ -115,5 +106,14 @@ class Contacto : AppCompatActivity() {
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         }
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {//para que funcionen los clicks del menu hamburguesa
+        if (toggle.onOptionsItemSelected(item)){
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

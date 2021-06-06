@@ -36,7 +36,6 @@ class TuPedido : AppCompatActivity() {
                 R.id.ContactoID -> startActivity(Intent(applicationContext, Contacto::class.java))
                 R.id.CarritoID -> startActivity(Intent(applicationContext, Carrito::class.java))
                 R.id.TuPedidoID -> startActivity(Intent(applicationContext, TuPedido::class.java))
-                R.id.TuMesaID -> startActivity(Intent(applicationContext, TuMesa::class.java))
                 R.id.SalirID -> startActivity(Intent(applicationContext, MainActivity::class.java))
             }
             true

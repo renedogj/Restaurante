@@ -28,8 +28,8 @@ class Menu : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
 
         navView = findViewById(R.id.navView)
-
         drawerLayout = findViewById(R.id.drawerLayout)
+
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)//los string son para que al cerrar o abrir el drawerLayout produzca sonido (funcionalidad para ciegos)
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
@@ -41,16 +41,16 @@ class Menu : AppCompatActivity() {
                 R.id.PerfilID -> startActivity(Intent(applicationContext, Perfil::class.java))
                 R.id.MenuPrincipalID -> startActivity(Intent(applicationContext, Menu::class.java))
                 R.id.MenuDiaID -> startActivity(Intent(applicationContext, MenuDelDia::class.java))
-                R.id.CartaID -> startActivity(Intent(applicationContext, Carta::class.java))
+                R.id.CartaID -> startActivity(Intent(applicationContext, Bebidas::class.java))
                 R.id.MesasID -> startActivity(Intent(applicationContext, Mesas::class.java))
                 R.id.ContactoID -> startActivity(Intent(applicationContext, Contacto::class.java))
                 R.id.CarritoID -> startActivity(Intent(applicationContext, Carrito::class.java))
                 R.id.TuPedidoID -> startActivity(Intent(applicationContext, TuPedido::class.java))
-                R.id.TuMesaID -> startActivity(Intent(applicationContext, TuMesa::class.java))
                 R.id.SalirID -> startActivity(Intent(applicationContext, MainActivity::class.java))
             }
             true
         }
+
         btnMenuDia = findViewById(R.id.btnMenuDia)
         btnCarta = findViewById(R.id.btnCarta)
         btnMesas = findViewById(R.id.btnMesas)
@@ -62,13 +62,13 @@ class Menu : AppCompatActivity() {
             startActivity(Intent(applicationContext, MenuDelDia::class.java))
         }
         btnCarta?.setOnClickListener {
-            startActivity(Intent(applicationContext, Carta::class.java))
+            startActivity(Intent(applicationContext, Bebidas::class.java))
         }
         btnMesas?.setOnClickListener {
             startActivity(Intent(applicationContext, Mesas::class.java))
         }
         btnDelivery?.setOnClickListener {
-            startActivity(Intent(applicationContext, Carta::class.java))
+            startActivity(Intent(applicationContext, Bebidas::class.java))
         }
         btnContacto?.setOnClickListener {
             startActivity(Intent(applicationContext, Contacto::class.java))
@@ -76,16 +76,12 @@ class Menu : AppCompatActivity() {
         btnPerfil?.setOnClickListener {
             startActivity(Intent(applicationContext, Perfil::class.java))
         }
-
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {//para que funcionen los clicks del menu hamburguesa
         if (toggle.onOptionsItemSelected(item)){
             return true
         }
-
         return super.onOptionsItemSelected(item)
     }
 }

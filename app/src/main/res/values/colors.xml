@@ -6,9 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="naranjita">#FFFFCCBC</color>
+    <color name="white">#F2F2F2F2</color>
+    <color name="whiteOpaco">#F2F2F2</color>
+    <color name="naranjita">#FFCCBC</color>
     <color name="naranja1">#ff0004</color>
-    <color name="naranja2">#F4511E</color>
-
+    <color name="naranja2">#E9FF7D28</color>
+    <color name="verde">#12DC4B</color>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/PerfilID"
         android:title="Perfil" />
@@ -26,10 +25,6 @@
         android:id="@+id/TuPedidoID"
         android:title="Tu pedido"/>
     <item
-        android:id="@+id/TuMesaID"
-        android:title="Tu Mesa"/>
-    <item
         android:id="@+id/SalirID"
         android:title="Salir"/>
-
 </menu>

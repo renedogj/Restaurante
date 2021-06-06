@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.restaurante">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -17,21 +16,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ThemeSegundaActivity">
+        <activity android:name=".Reservas"/>
+        <activity android:name=".InfoPlatosMenu" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Postres" />
         <activity android:name=".Bebidas" />
         <activity android:name=".Comida" />
-        <activity android:name=".TuMesa" />
         <activity android:name=".TuPedido" />
         <activity android:name=".Carrito" />
         <activity android:name=".Perfil" />
         <activity android:name=".Contacto">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <data android:scheme="geo" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

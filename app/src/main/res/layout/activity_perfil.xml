@@ -7,23 +7,97 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/textViewPerfil"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView_cp"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:clickable="true"
+            android:background="@drawable/ic_baseline_image_24"
+            android:onClick="ChooseImage"/>
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Perfil"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:hint="Nombre"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:inputType="textPersonName"
+            android:id="@+id/name_et_cp"
+            android:autoText="true"
+            android:backgroundTint="@color/naranja1"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Edad"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:id="@+id/age_et_cp"
+            android:autoText="true"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bio"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:inputType="textPersonName"
+            android:id="@+id/bio_et_cp"
+            android:autoText="true"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:inputType="textEmailAddress"
+            android:id="@+id/email_et_cp"
+            android:autoText="true"
+            android:backgroundTint="@color/naranja1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Website"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:inputType="textPersonName"
+            android:id="@+id/website_et_cp"
+            android:autoText="true"
+            android:backgroundTint="@color/naranja1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Perfil"
+            android:textSize="18dp"
+            android:textColor="#FF5722"
+            android:textStyle="bold"
+            android:id="@+id/save_profile_btn_cp"
+            android:background="@color/naranjita"
+            android:layout_margin="10dp"/>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/naranja1"
+            android:visibility="invisible"
+            android:id="@+id/progressBar_cp"/>
+
+
+
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
