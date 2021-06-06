@@ -1,9 +1,12 @@
 package com.example.restaurante
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -14,10 +17,9 @@ import com.example.restaurante.listener.ICartLoadListener
 import com.example.restaurante.model.CartModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_bebidas.*
 import kotlinx.android.synthetic.main.activity_carrito.*
 import kotlinx.android.synthetic.main.activity_carrito.mainLayout
@@ -31,7 +33,7 @@ class Carrito : AppCompatActivity(), ICartLoadListener {
     var navView: NavigationView? = null
 
     //variables para cargar el carrito
-    var cartLoadListener:ICartLoadListener?=null
+    var cartLoadListener: ICartLoadListener? = null
 
     override fun onStart() {
         super.onStart()
@@ -46,7 +48,7 @@ class Carrito : AppCompatActivity(), ICartLoadListener {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    fun onUpdateCartEvent(event: UpdateCartEvent){
+    fun onUpdateCartEvent(event: UpdateCartEvent) {
         loadCartFromFirebase()
     }
 
@@ -58,16 +60,21 @@ class Carrito : AppCompatActivity(), ICartLoadListener {
         loadCartFromFirebase()
 
         navView = findViewById(R.id.navView)
-
         drawerLayout = findViewById(R.id.drawerLayout)
-        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)//los string son para que al cerrar o abrir el drawerLayout produzca sonido (funcionalidad para ciegos)
+
+        toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            R.string.open,
+            R.string.close
+        )//los string son para que al cerrar o abrir el drawerLayout produzca sonido (funcionalidad para ciegos)
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)//para abrir el menu hamburguesa(toggle button) y cuando esta abierto y clickamos en la flecha de ir atras se cerrara de nuevo
 
         navView?.setNavigationItemSelectedListener {//Segun el item seleccionado hacer lo siguiente...
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.PerfilID -> startActivity(Intent(applicationContext, Perfil::class.java))
                 R.id.MenuPrincipalID -> startActivity(Intent(applicationContext, Menu::class.java))
                 R.id.MenuDiaID -> startActivity(Intent(applicationContext, MenuDelDia::class.java))
@@ -83,7 +90,7 @@ class Carrito : AppCompatActivity(), ICartLoadListener {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {//para que funcionen los clicks del menu hamburguesa
-        if (toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
 
@@ -92,13 +99,13 @@ class Carrito : AppCompatActivity(), ICartLoadListener {
 
     //Funciones para carrito
     private fun loadCartFromFirebase() {
-        val cartModels : MutableList<CartModel> = ArrayList()
+        val cartModels: MutableList<CartModel> = ArrayList()
         FirebaseDatabase.getInstance()
             .getReference("Cart")
             .child("UNIQUE_USER_ID")
-            .addListenerForSingleValueEvent(object: ValueEventListener {
+            .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    for(cartSnapshot in snapshot.children){
+                    for (cartSnapshot in snapshot.children) {
                         val cartModel = cartSnapshot.getValue(CartModel::class.java)
                         cartModel!!.key = cartSnapshot.key
                         cartModels.add(cartModel)
@@ -123,15 +130,28 @@ class Carrito : AppCompatActivity(), ICartLoadListener {
             startActivity(Intent(applicationContext, Bebidas::class.java))
         }
 
-        btnCall.setOnClickListener {
-            startActivity(Intent(applicationContext, Bebidas::class.java))
+        lateinit var database: DatabaseReference
+        database = Firebase.database.reference
+
+        database.child("InfoRestaurante").child("Telefono").get().addOnSuccessListener {
+            var numTelefono = "${it.value}"
+            btnCall!!.setOnClickListener {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:$numTelefono")
+                }
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }
+            }
+        }.addOnFailureListener {
+            Toast.makeText(this,"No se ha encontrado el telefono del restaurante",Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onLoadCartSuccess(cartModelList: List<CartModel>) {
         var sum = 0.0
-        for(cartModel in cartModelList!!){
-            sum+= cartModel!!.totalPrice
+        for (cartModel in cartModelList!!) {
+            sum += cartModel!!.totalPrice
         }
         txtTotal.text = StringBuilder("€").append(sum)
         val adapter = MyCartAdapter(this, cartModelList)

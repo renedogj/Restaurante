@@ -33,6 +33,7 @@ class Mesas : AppCompatActivity() {
     var numberPicker: NumberPicker? = null
     var tvPickDate: TextView? = null
     var tvPickTime: TextView? = null
+    var tvLimeteReserva: TextView? = null
     var bttonReservar: Button? = null
 
     private var dia: Int? = null
@@ -52,6 +53,7 @@ class Mesas : AppCompatActivity() {
         numberPicker = findViewById(R.id.numberPicker)
         tvPickDate = findViewById(R.id.tvPickDate)
         tvPickTime = findViewById(R.id.tvPickTime)
+        tvLimeteReserva = findViewById(R.id.tvLimeteReserva)
         bttonReservar = findViewById(R.id.bttonReservar)
 
         drawerLayout = findViewById(R.id.drawerLayout)
@@ -134,6 +136,10 @@ class Mesas : AppCompatActivity() {
                 true
             )
             timePickerDialog.show()
+        }
+
+        tvLimeteReserva!!.setOnClickListener {
+            startActivity(Intent(applicationContext, Contacto::class.java))
         }
 
         bttonReservar!!.setOnClickListener {
