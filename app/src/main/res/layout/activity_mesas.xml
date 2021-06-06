@@ -13,10 +13,10 @@
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_drawer_menu"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"/>
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_drawer_menu" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,17 +32,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:text="¡Reserva tu mesa ya!"
                 android:textAlignment="center"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                android:text="¡Reserva tu mesa ya!" />
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp">
+                android:paddingTop="5dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="5dp">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,85 +52,98 @@
                     app:cardBackgroundColor="@color/naranjita"
                     app:cardCornerRadius="6dp"
                     app:cardElevation="4dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="150dp"
                             android:orientation="vertical"
                             android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
                             android:paddingTop="5dp"
+                            android:paddingEnd="10dp"
                             android:paddingBottom="5dp">
+
                             <Space
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:padding="10dp"
+                                android:text="Número de personas:"
                                 android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:text="Número de personas:"/>
+                                android:textStyle="bold" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="14"
                                 android:paddingStart="10dp"
                                 android:paddingEnd="10dp"
-                                android:textSize="13sp"
-                                android:text="Selecciona el número de personas para los que quieres hacer la reserva"/>
+                                android:text="Selecciona el número de personas para los que quieres hacer la reserva"
+                                android:textSize="13sp" />
+
                             <Space
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal"
                             android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
                             android:paddingTop="6dp"
+                            android:paddingEnd="10dp"
                             android:paddingBottom="6dp">
+
                             <Space
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
+
                             <NumberPicker
                                 android:id="@+id/numberPicker"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content" />
+
                             <Space
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="5"/>
+                                android:layout_weight="5" />
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="22dp"
-                android:paddingEnd="22dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:ems="12"
-                android:textSize="13sp"
-                android:text="Por motivos sanitarios no podrán sentarse más de seis personas en una misma"/>
+                android:paddingStart="22dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="22dp"
+                android:paddingBottom="5dp"
+                android:text="Por motivos sanitarios no podrán sentarse más de seis personas en una misma"
+                android:textSize="13sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp">
+                android:paddingTop="5dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="5dp">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -136,18 +151,20 @@
                     app:cardBackgroundColor="@color/naranjita"
                     app:cardCornerRadius="6dp"
                     app:cardElevation="4dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="10dp">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="7"
                             android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
                             android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
                             android:text="Fecha:"
                             android:textSize="19sp"
                             android:textStyle="bold" />
@@ -155,19 +172,20 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
                             android:ems="7"
                             android:gravity="center_vertical"
-                            android:textSize="13sp"
-                            android:text="Introduce la fecha de la reserva"/>
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="Introduce la fecha de la reserva"
+                            android:textSize="13sp" />
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardBackgroundColor="@color/white"
                             android:layout_margin="5dp"
+                            app:cardBackgroundColor="@color/white"
                             app:cardCornerRadius="15dp">
+
                             <TextView
                                 android:id="@+id/tvPickDate"
                                 android:layout_width="match_parent"
@@ -175,8 +193,8 @@
                                 android:ems="7"
                                 android:padding="10dp"
                                 android:text=""
-                                android:textSize="19sp"
-                                android:textAlignment="center" />
+                                android:textAlignment="center"
+                                android:textSize="19sp" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -188,57 +206,62 @@
                     app:cardBackgroundColor="@color/naranjita"
                     app:cardCornerRadius="6dp"
                     app:cardElevation="4dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="10dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="10dp"
-                            android:ems="7"
-                            android:textSize="19sp"
-                            android:textStyle="bold"
-                            android:text="Hora:" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:ems="7"
                             android:paddingStart="10dp"
+                            android:paddingTop="10dp"
                             android:paddingEnd="10dp"
+                            android:text="Hora:"
+                            android:textSize="19sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:ems="7"
                             android:gravity="center_vertical"
-                            android:textSize="13sp"
-                            android:text="Introduce la hora de la reserva"/>
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="Introduce la hora de la reserva"
+                            android:textSize="13sp" />
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:cardBackgroundColor="@color/white"
                             android:layout_margin="5dp"
+                            app:cardBackgroundColor="@color/white"
                             app:cardCornerRadius="15dp">
+
                             <TextView
                                 android:id="@+id/tvPickTime"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
                                 android:ems="7"
-                                android:textSize="19sp"
-                                android:textAlignment="center"/>
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textSize="19sp" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp">
+                android:paddingTop="5dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="5dp">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -246,29 +269,32 @@
                     app:cardBackgroundColor="@color/naranjita"
                     app:cardCornerRadius="6dp"
                     app:cardElevation="4dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="10dp">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
                             android:ems="14"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="Nombre:"
                             android:textSize="19sp"
-                            android:textStyle="bold"
-                            android:text="Nombre:"/>
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
                             android:ems="14"
                             android:gravity="center_vertical"
-                            android:textSize="13sp"
-                            android:text="Introduce tu nombre para poder hacer la reserva"/>
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="Introduce tu nombre para poder hacer la reserva"
+                            android:textSize="13sp" />
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
@@ -277,12 +303,14 @@
                             app:cardBackgroundColor="#F2F2F2F2"
                             app:cardCornerRadius="15dp"
                             app:cardElevation="2dp">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:paddingStart="10dp"
                                 android:paddingEnd="10dp">
+
                                 <EditText
                                     android:id="@+id/etNombre"
                                     android:layout_width="match_parent"
@@ -296,24 +324,25 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
                 android:ems="15"
-                android:textSize="13sp"
-                android:text="Para reservas de más de 15 personas contactacta con nosotros"/>
+                android:paddingStart="24dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="8dp"
+                android:text="Para reservas de más de 10 personas contactacta con nosotros"
+                android:textSize="13sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
                 android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="20dp">
 
                 <Button
 
@@ -328,5 +357,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 </androidx.drawerlayout.widget.DrawerLayout>

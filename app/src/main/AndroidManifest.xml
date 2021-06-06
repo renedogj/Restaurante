@@ -20,8 +20,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".Reservas"/>
+        <activity android:name=".InfoPlatosMenu" />
         <activity android:name=".Bebidas" />
-        <activity android:name=".Comida" />
         <activity android:name=".TuPedido" />
         <activity android:name=".Carrito" />
         <activity android:name=".Perfil" />

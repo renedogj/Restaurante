@@ -7,96 +7,106 @@
     android:layout_height="match_parent"
     tools:context=".Contacto">
 
-    <androidx.cardview.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bttnComoLlegar"
-        card_view:cardCornerRadius="5dp">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_ubicacion_restaurante"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp">
-
-        <Button
-            android:id="@+id/bttnComoLlegar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Como llegar"
-            android:padding="10dp"/>
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            android:paddingLeft="10dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/bttnComoLlegar"
+                    card_view:cardCornerRadius="5dp">
 
-            <TextView
-                android:id="@+id/tvTelefonoTexto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textAlignment="center"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:text="Telefono de contacto:  "/>
-            <TextView
-                android:id="@+id/tvTelefonoNumero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textAlignment="center"
-                android:textSize="17sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp">
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/fragment_ubicacion_restaurante"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvDireccionTexto"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textAlignment="center"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:text="Dirección: "/>
-            <TextView
-                android:id="@+id/tvDireccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
+                android:orientation="vertical"
+                android:padding="20dp">
+                <Button
+                    android:id="@+id/bttnComoLlegar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Como llegar"
+                    android:padding="10dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/tvTelefonoTexto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:text="Telefono de contacto:  "/>
+                    <TextView
+                        android:id="@+id/tvTelefonoNumero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/tvDireccionTexto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:text="Dirección: "/>
+                    <TextView
+                        android:id="@+id/tvDireccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

@@ -95,8 +95,9 @@ class Perfil : AppCompatActivity() {
         }*/
 
         progressBar_cp.visibility=View.VISIBLE
+
         //Enseñar Campos
-        coleccionUsuarios.document(autentificacion.currentUser.displayName).get()
+        coleccionUsuarios.document(autentificacion.currentUser.uid).get()
             .addOnSuccessListener {
                 //Rellenar campos
                 nombre_ImagenPerfil.text = it.getString("nombreUsuario").toString()

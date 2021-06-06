@@ -110,7 +110,7 @@ class MenuDelDia : AppCompatActivity(), IPlatoLoadListener, IMenuLoadListener {
                                 platoModelmenuList.add(platoModel)
                             }
                         }
-                        platoLoadListener.onPlatoLoadSuccess(platoModelmenuList)
+                        platoLoadListener.onPlatosLoadSuccess(platoModelmenuList)
                     }
                     else
                         platoLoadListener.onPlatoLoadFailed("No hay platos disponibles")
@@ -141,7 +141,9 @@ class MenuDelDia : AppCompatActivity(), IPlatoLoadListener, IMenuLoadListener {
         Toast.makeText(this, message!!, Toast.LENGTH_LONG).show()
     }
 
-    override fun onPlatoLoadSuccess(platoModelList:List<PlatoModel>?) {
+    override fun onPlatoLoadSuccess(platoModel: PlatoModel?) {}
+
+    override fun onPlatosLoadSuccess(platoModelList:List<PlatoModel>?) {
         val adapter = PlatoAdapter(this, platoModelList!!)
         recyclerMenu.adapter = adapter
     }
@@ -149,11 +151,11 @@ class MenuDelDia : AppCompatActivity(), IPlatoLoadListener, IMenuLoadListener {
     override fun onPlatoLoadFailed(message: String?) {
         Toast.makeText(this, message!!, Toast.LENGTH_LONG).show()
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {//para que funcionen los clicks del menu hamburguesa
         if (toggle.onOptionsItemSelected(item)){
             return true
         }
-
         return super.onOptionsItemSelected(item)
     }
 }
