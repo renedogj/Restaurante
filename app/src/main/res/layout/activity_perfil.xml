@@ -114,11 +114,13 @@
                 android:id="@+id/editarPerfil_btn"
                 android:background="@drawable/degradado"
                 android:backgroundTint="@color/naranjita"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:layout_margin="5dp"/>
             <Button
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:text="Tu Reserva"
+                android:text="Tus Reservas"
                 android:textSize="16dp"
                 android:clickable="true"
                 android:textColor="#FF5722"
@@ -126,6 +128,8 @@
                 android:id="@+id/tuReserva_btn"
                 android:background="@drawable/degradado"
                 android:backgroundTint="@color/naranjita"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:layout_margin="5dp"/>
 
         </LinearLayout>

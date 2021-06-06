@@ -90,14 +90,14 @@ class Perfil : AppCompatActivity() {
         }
         //Parte perfil
 
-        /*tuReserva_btn.setOnClickListener {
+        tuReserva_btn.setOnClickListener {
             startActivity(Intent(applicationContext, Reservas::class.java))
-        }*/
+        }
 
         progressBar_cp.visibility=View.VISIBLE
 
         //Enseñar Campos
-        coleccionUsuarios.document(autentificacion.currentUser.uid).get()
+        coleccionUsuarios.document(autentificacion.currentUser.displayName).get()
             .addOnSuccessListener {
                 //Rellenar campos
                 nombre_ImagenPerfil.text = it.getString("nombreUsuario").toString()

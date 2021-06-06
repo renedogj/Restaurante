@@ -25,7 +25,6 @@ import kotlinx.android.synthetic.main.activity_mesas.*
 import kotlinx.android.synthetic.main.activity_registro.*
 import java.util.*
 
-
 class Mesas : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle//boton de hamburguesa
     var drawerLayout: DrawerLayout? = null
@@ -56,19 +55,14 @@ class Mesas : AppCompatActivity() {
         bttonReservar = findViewById(R.id.bttonReservar)
 
         drawerLayout = findViewById(R.id.drawerLayout)
-        toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            R.string.open,
-            R.string.close
-        )//los string son para que al cerrar o abrir el drawerLayout produzca sonido (funcionalidad para ciegos)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)//los string son para que al cerrar o abrir el drawerLayout produzca sonido (funcionalidad para ciegos)
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)//para abrir el menu hamburguesa(toggle button) y cuando esta abierto y clickamos en la flecha de ir atras se cerrara de nuevo
 
         navView?.setNavigationItemSelectedListener {//Segun el item seleccionado hacer lo siguiente...
-            when (it.itemId) {
+            when(it.itemId) {
                 R.id.PerfilID -> startActivity(Intent(applicationContext, Perfil::class.java))
                 R.id.MenuPrincipalID -> startActivity(Intent(applicationContext, Menu::class.java))
                 R.id.MenuDiaID -> startActivity(Intent(applicationContext, MenuDelDia::class.java))
@@ -223,10 +217,6 @@ class Mesas : AppCompatActivity() {
                 .child(codigoTiempo!!).push()
             pushedPostRef.setValue(Reserva(dia,mes,anno,hora, minuto, nombre, numberPicker!!.value.toLong(), user.uid))
 
-            //FirebaseDatabase.getInstance().getReference("Reservas").child(codigoTiempo!!).push()
-            val reservaID = pushedPostRef.key
-            FirebaseDatabase.getInstance().getReference("Users").child(user.uid).child("Reservas")
-                .child(codigoTiempo).child(reservaID!!).setValue(reservaID)
         } else {
             FirebaseDatabase.getInstance().getReference("Reservas")
                 .child(codigoTiempo!!).push()

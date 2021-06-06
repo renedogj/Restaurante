@@ -151,7 +151,7 @@ class InfoPlatosMenu : AppCompatActivity(), IPlatoLoadListener {
                 alergenosList.add(alergeno.value!!)
             }
             recyclerAlergenos.layoutManager = GridLayoutManager(this, alergenosList.size)
-            var adapterAlergenos = IngredienteAdapter(this, alergenosList,R.color.naranja1)
+            var adapterAlergenos = IngredienteAdapter(this, alergenosList)
             recyclerAlergenos.adapter = adapterAlergenos
         }
     }

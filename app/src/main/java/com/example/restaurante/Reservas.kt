@@ -68,46 +68,41 @@ class Reservas : AppCompatActivity(), ILoadReservas {
 
         val user = Firebase.auth.currentUser
 
-        FirebaseDatabase.getInstance()
-            .getReference("Users").child(user.uid)
-            .addListenerForSingleValueEvent(object: ValueEventListener {
-                override fun onDataChange(usuarioSnapShot: DataSnapshot) {
-                    if(usuarioSnapShot.exists()){
-                        val usuario  = usuarioSnapShot.getValue(Usuario::class.java)
-                        if (usuario!!.Reservas != null) {
-                            for (codigotiempo in usuario.Reservas!!.keys){
-                                for(id in usuario.Reservas!![codigotiempo]!!.values){
-                                    referenciaReserva = ReferenciaReserva(codigotiempo,id)
-
-                                    FirebaseDatabase.getInstance()
-                                        .getReference("Reservas").child(referenciaReserva!!.codigoTiempo!!)
-                                        .child(referenciaReserva!!.idReserva!!)
-                                        .addListenerForSingleValueEvent(object: ValueEventListener {
-                                            override fun onDataChange(reservaSnapShot: DataSnapshot){
-                                                if(reservaSnapShot.exists()){
-                                                    reserva  = reservaSnapShot.getValue(Reserva::class.java)
-                                                    reserva!!.key = reservaSnapShot.key
-                                                    reservasList.add(reserva!!)
-                                                }
-                                                reservaLoadListener.onReservaLoadSuccess(reservasList)
-                                            }
-                                            override fun onCancelled(error: DatabaseError) {
-                                                reservaLoadListener.onReservaLoadFailed(error.message)
-                                            }
-                                        })
-                                }
+        FirebaseDatabase.getInstance().getReference("Reservas")
+            .addChildEventListener(object: ChildEventListener {
+                override fun onChildAdded(codigoTiemposhot: DataSnapshot, previousChildName: String?) {
+                    for(reservaSnapShot in codigoTiemposhot.children){
+                        if(reservaSnapShot.key != "numTotalReservas"){
+                            reserva  = reservaSnapShot.getValue(Reserva::class.java)
+                            if(reserva!!.ususario == user.uid){
+                                reserva!!.key = reservaSnapShot.key
+                                reservasList.add(reserva!!)
                             }
-                        }else
-                            reservaLoadListener.onReservaLoadFailed("No has hecho ninguna reserva")
+                        }
                     }
-                    else
+                    if(reservasList.size > 0){
+                        reservaLoadListener.onReservaLoadSuccess(reservasList)
+                    }else{
                         reservaLoadListener.onReservaLoadFailed("No has hecho ninguna reserva")
-                }
-                override fun onCancelled(error: DatabaseError) {
-                    reservaLoadListener.onReservaLoadFailed(error.message)
+                    }
                 }
 
-            })
+                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                    //TODO("Not yet implemented")
+                }
+
+                override fun onChildRemoved(snapshot: DataSnapshot) {
+                    //TODO("Not yet implemented")
+                }
+
+                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                    //TODO("Not yet implemented")
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    reservaLoadListener.onReservaLoadFailed(databaseError.message)
+                }
+            });
     }
 
     private fun init() {

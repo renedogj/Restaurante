@@ -36,12 +36,10 @@ class PlatoAdapter (
             txtDescripcion = itemView.findViewById(R.id.txtDescripcion) as TextView
 
             cardViewPlato!!.setOnClickListener {
-                /*val intent: Intent?
+                val intent: Intent?
                 intent = Intent(context, InfoPlatosMenu::class.java)
                 intent.putExtra("keyPlato", keyPlato)
-                startActivity(context,intent,null)*/
-
-                startActivity(context, Intent(context, Reservas::class.java), null)
+                startActivity(context,intent,null)
             }
         }
     }
