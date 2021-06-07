@@ -17,6 +17,9 @@
         android:id="@+id/MesasID"
         android:title="Mesas"/>
     <item
+        android:id="@+id/StoriesID"
+        android:title="Stories"/>
+    <item
         android:id="@+id/ContactoID"
         android:title="Contacto"/>
     <item

@@ -65,7 +65,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/degradado"
                     android:id="@+id/btnDelivery"
-                    android:text="Delivery"
+                    android:text="Stories"
                     android:textColor="@color/white"
                     android:textSize="18dp"
                     android:textStyle="bold"

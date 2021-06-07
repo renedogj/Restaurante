@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         Bt1 = findViewById(R.id.Bt1)
         Bt2 = findViewById(R.id.Bt2)
 
-        Bt1?.setOnClickListener {
-            if (FAuth?.getCurrentUser() == null) {
+        Bt1?.setOnClickListener { startActivity(Intent(applicationContext, Login::class.java))
+            /*if (FAuth?.getCurrentUser() == null) {
                 /*val intentoL = Intent(this, Login::class.java)
                 startActivity(intentoL)*///otra forma de cargar otro activity
                 startActivity(Intent(applicationContext, Login::class.java))
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intentoM)*///otra forma de cargar otro activity
                 startActivity(Intent(applicationContext, Login::class.java))
                 finish()
-            }
+            }*/
         }
         Bt2?.setOnClickListener {
             /*val intentoR = Intent(this, Registro::class.java)

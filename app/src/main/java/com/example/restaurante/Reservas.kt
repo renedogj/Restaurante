@@ -58,6 +58,7 @@ class Reservas : AppCompatActivity(), ILoadReservas {
                 R.id.MenuDiaID -> startActivity(Intent(applicationContext, MenuDelDia::class.java))
                 R.id.CartaID -> startActivity(Intent(applicationContext, Bebidas::class.java))
                 R.id.MesasID -> startActivity(Intent(applicationContext, Mesas::class.java))
+                R.id.StoriesID -> startActivity(Intent(applicationContext, Stories::class.java))
                 R.id.ContactoID -> startActivity(Intent(applicationContext, Contacto::class.java))
                 R.id.CarritoID -> startActivity(Intent(applicationContext, Carrito::class.java))
                 R.id.SalirID -> startActivity(Intent(applicationContext, MainActivity::class.java))
