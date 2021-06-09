@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Registrarse</title>
+		<link rel="stylesheet" type="text/css" href="css/contenedora.css">
+		<link rel="stylesheet" type="text/css" href="css/header.css">
+		<link rel="stylesheet" type="text/css" href="css/registrarse.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	</head>
+	<body onresize="ajustarTamaño()">
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-database.js"></script>
+		<script>
+			var firebaseConfig = {
+				apiKey: "AIzaSyDuU1dXAPfANThrSK316lY9nPIDZvN8T68",
+				authDomain: "restaurante-358d8.firebaseapp.com",
+				databaseURL: "https://restaurante-358d8-default-rtdb.firebaseio.com",
+				projectId: "restaurante-358d8",
+				storageBucket: "restaurante-358d8.appspot.com",
+				messagingSenderId: "966943328871",
+				appId: "1:966943328871:web:5aff94344e5db285a862c2",
+				measurementId: "G-D21XTDESW6"
+			};
+
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+
+			firebase.auth().onAuthStateChanged(function(user) {
+				if(user){
+					var displayName = user.displayName;
+					var email = user.email;
+					var emailVerified = user.emailVerified;
+					var photoURL = user.photoURL;
+					var isAnonymous = user.isAnonymous;
+					var uid = user.uid;
+					var providerData = user.providerData;
+					//firebase.database().ref('Users/'+user.uid).set(user.uid);
+					//$(".dropdown-content").empty();
+					//$(".dropdown-content").html("<a class='logout' onclick='cerrarSesion()'>Cerrar Sesión</a>");
+				}else{
+					//$(".dropdown-content").empty();
+					//$(".dropdown-content").html("<a class='login' href='inicioSesion.html'>Iniciar Sesión</a>");
+				}
+			});
+
+			function registrarse(){
+				var nombre = document.querySelector("#nombre").value;
+				var apellidos = document.querySelector("#apellidos").value;
+				var fechaNacimiento = document.querySelector("#fechaNacimiento").value;
+				var email = document.querySelector("#correo").value;
+				var password = document.querySelector("#password").value;
+				var confirmarPassword = document.querySelector("#confirmarPassword").value;
+
+				if(password == confirmarPassword){
+					firebase.auth().createUserWithEmailAndPassword(email, password)
+						.then((userCredential) => {
+							var user = userCredential.user;
+
+							//Subir usuario a realTime dataBase
+							firebase.database().ref('Users/').child(user.uid).set({
+								nombre: nombre,
+								apellidos: apellidos,
+								fechaNacimiento: fechaNacimiento,
+								email: email,
+							}, (error) => {
+								if (error) {
+									console.log("Se ha producido un error al registrar al nuevo usuario");
+								} else {
+									console.log("Todo bien");
+									document.querySelector("#nombre").value = "";
+									document.querySelector("#apellidos").value = "";
+									document.querySelector("#fechaNacimiento").value = "";
+									document.querySelector("#correo").value = "";
+									document.querySelector("#password").value = "";
+									document.querySelector("#confirmarPassword").value = "";
+								}
+							});
+						})
+						.catch((error) => {
+							var errorCode = error.code;
+							console.log(errorCode)
+							var errorMessage = error.message;
+							console.log(errorMessage)
+						});
+				} else {
+					console.log("Las contraseñas no coinciden")
+				}
+			}
+
+			function cerrarSesion(){
+				firebase.auth().signOut();
+			}
+		</script>
+		<header class="header">
+			
+		</header>
+		<div class="contenedora">
+			<div class="registrarse">
+				<div class="div-registrarse" id="div-registrarse">
+					<h1>Registrar nuevo administrador</h1>
+					<div class="div-contenedora-nombreApellidos">
+						<div class="div-nombreApellidos div-nombre">
+							<label for="nombre"> Nombre:</label>
+							<input id="nombre" type="text" size="50" maxlength="25" placeholder=" Nombre"/>
+						</div>
+						<div class="div-nombreApellidos div-apellidos">
+							<label for="apellidos"> Apellidos:</label>
+							<input id="apellidos" type="text" size="70" maxlength="25" placeholder=" Apellidos"/>
+						</div>
+					</div>
+					<div class="div-contenedora-labelinput">
+						<label for="fechaNacimiento"> Fecha de nacimiento:</label>
+						<input id="fechaNacimiento" type="date"/>
+					</div>
+					<div class="div-contenedora-labelinput">
+						<label for="correo"> Correo electronico:</label>
+						<input id="correo" type="email" size="50" maxlength="25" placeholder=" Correo electronico"/>
+					</div>
+					<div class="div-contenedora-labelinput">
+						<label for="password"> Contraseña:</label>
+						<input id="password" type="password" size="50" maxlength="25" placeholder=" Contraseña"/>
+					</div>
+					<div class="div-contenedora-labelinput">
+						<label for="confirmarPassword"> Confirma la contraseña:</label>
+						<input id="confirmarPassword" type="password" size="50" maxlength="25" placeholder=" Confirma la contraseña"/>
+					</div>
+					<div class="div-boton-registrarse">
+						<button onclick="registrarse()" class="boton-registrarse" id="boton">Registrarse</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			ajustarTamaño();
+			function ajustarTamaño(){
+				registrarseInnerHeight = $(".registrarse").innerHeight();
+				marginTop = ($(window).height()-registrarseInnerHeight)/2;
+				$(".registrarse").css("margin",marginTop+"px auto");
+			}
+		</script>
+	</body>
+</html>
