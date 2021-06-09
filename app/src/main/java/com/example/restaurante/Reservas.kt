@@ -105,8 +105,7 @@ class Reservas : AppCompatActivity(), ILoadReservas {
     private fun init() {
         reservaLoadListener = this
 
-        recyclerReservas.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerReservas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun onReservaLoadSuccess(reservasList: MutableList<Reserva>?) {
