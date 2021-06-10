@@ -50,7 +50,7 @@ class MyCartAdapter(private val context: Context, private val cartModelList:List
             .load(cartModelList[position].image)
             .into(holder.imageView!!)
         holder.txtName!!.text = StringBuilder().append(cartModelList[position].name)
-        holder.txtPrice!!.text = StringBuilder("$").append(cartModelList[position].price)
+        holder.txtPrice!!.text = StringBuilder("€").append(cartModelList[position].price)
         holder.txtQuantity!!.text = StringBuilder("").append(cartModelList[position].quantity)
 
         //Event

@@ -65,7 +65,7 @@ class MyDrinkAdapter (
             .load(list[position].image)
             .into(holder.imageView!!)
         holder.txtName!!.text = StringBuilder().append(list[position].name)
-        holder.txtPrice!!.text = StringBuilder("$").append(list[position].price)
+        holder.txtPrice!!.text = StringBuilder("€").append(list[position].price)
 
         holder.setClickListener(object:IRecyclerClickListener{
             override fun onItemClickListener(view: View?, position: Int) {
@@ -95,7 +95,7 @@ class MyDrinkAdapter (
                             .updateChildren(updateData)
                             .addOnSuccessListener {
                                 EventBus.getDefault().postSticky(UpdateCartEvent())
-                                cartListener.onLoadCartFailed("Success add to cart")
+                                cartListener.onLoadCartFailed("Añadido a carrito con éxito")
                             }
                             .addOnFailureListener{e-> cartListener.onLoadCartFailed(e.message)}
 
@@ -112,7 +112,7 @@ class MyDrinkAdapter (
                             .setValue(cartModel)
                             .addOnSuccessListener {
                                 EventBus.getDefault().postSticky(UpdateCartEvent())
-                                cartListener.onLoadCartFailed("Success add to cart")
+                                cartListener.onLoadCartFailed("Añadido a carrito con éxito")
                             }
                             .addOnFailureListener{e-> cartListener.onLoadCartFailed(e.message)}
 
