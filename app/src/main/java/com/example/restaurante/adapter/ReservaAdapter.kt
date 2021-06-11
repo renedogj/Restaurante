@@ -89,10 +89,7 @@ class ReservaAdapter(
                 .setMessage("¿Realmente quieres borrar la reserva seleccionada?")
                 .setNegativeButton("CANCELAR") { dialog, _ -> dialog.dismiss() }
                 .setPositiveButton("BORRAR") { dialog, _ ->
-
-                    //notifyItemRemoved(position)
                     reservaViewHolder.cardReserva!!.visibility = View.GONE
-
                     var codigoTiempo = "${reservaViewHolder.reserva!!.anno}"
                     codigoTiempo += if (reservaViewHolder.reserva!!.mes!! < 10) {
                         "0${reservaViewHolder.reserva!!.mes}"

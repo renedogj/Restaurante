@@ -55,13 +55,10 @@ class ForgotPassword : AppCompatActivity() {
         }
 
         auth!!.sendPasswordResetEmail(email).addOnCompleteListener { task ->
-
             if(task.isSuccessful){
                 Toast.makeText(this@ForgotPassword, "Comprueba tu email para resetear la contraseña", Toast.LENGTH_LONG).show()
-
-        }else{
+            }else{
                 Toast.makeText(this@ForgotPassword, "Intentalo de nuevo, ha ocurrido un error", Toast.LENGTH_LONG).show()
-
             }
         }
     }

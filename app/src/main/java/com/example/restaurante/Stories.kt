@@ -93,27 +93,21 @@ class Stories : AppCompatActivity(), IFireStoreLoadDone {
             override fun onSuccess() {
                 //if first image is loaded - start stories
                 stories.startStories()
-
             }
 
-            override fun onError(e: Exception?) {
-
-            }
-
+            override fun onError(e: Exception?) {}
         })
 
         stories.setStoriesListener(object :StoriesProgressView.StoriesListener{
             override fun onNext() {
-                if(counter < movieList.size)
-                {
+                if(counter < movieList.size){
                     counter ++
                     Picasso.get().load(movieList[counter].image).into(image)
                 }
             }
 
             override fun onPrev() {
-                if(counter > 0)
-                {
+                if(counter > 0){
                     counter --
                     Picasso.get().load(movieList[counter].image).into(image)
                 }
@@ -122,9 +116,7 @@ class Stories : AppCompatActivity(), IFireStoreLoadDone {
             override fun onComplete() {
                 counter = 0//reset
                 Toast.makeText(this@Stories, "Carga completada", Toast.LENGTH_LONG).show()
-
             }
-
         })
     }
 

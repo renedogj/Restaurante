@@ -6,27 +6,26 @@
         android:title="Perfil" />
     <item
         android:id="@+id/MenuPrincipalID"
-        android:title="Menu Principal"/>
+        android:title="Menu Principal" />
     <item
         android:id="@+id/MenuDiaID"
-        android:title="Menu del dia"/>
+        android:title="Menu del dia" />
     <item
         android:id="@+id/CartaID"
-        android:title="Carta"/>
+        android:title="Carta" />
     <item
         android:id="@+id/MesasID"
-        android:title="Mesas"/>
+        android:title="Mesas" />
     <item
         android:id="@+id/StoriesID"
-        android:title="Stories"/>
+        android:title="Stories" />
     <item
         android:id="@+id/ContactoID"
-        android:title="Contacto"/>
+        android:title="Contacto" />
     <item
         android:id="@+id/CarritoID"
-        android:title="Carrito"/>
+        android:title="Carrito" />
     <item
         android:id="@+id/SalirID"
-        android:title="Salir"/>
-
+        android:title="Salir" />
 </menu>

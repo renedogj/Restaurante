@@ -27,7 +27,6 @@ class Perfil : AppCompatActivity() {
     var navView: NavigationView? = null
 
     //Variables perfil
-    //Codigo el que queramos
     private val file = 1
 
     //Raiz del Storage
@@ -200,7 +199,6 @@ class Perfil : AppCompatActivity() {
             foto = autentificacion.currentUser.photoUrl.toString()
             actualizarPerfil(nombre, apellidos, correo, usuarioId, contrasena, foto,descripcion)
         } else {
-            //La primera vez va a fallar en eliminar la foto ya que no existe esa referencia, entonces ira al addOnFailureListener
             storageReferencia.child("$usuarioId/" + autentificacion.currentUser.displayName.toString())
                 .delete()
                 .addOnSuccessListener {

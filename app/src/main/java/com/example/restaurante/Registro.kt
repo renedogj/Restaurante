@@ -23,7 +23,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_registro.*
 
 
-class Registro : AppCompatActivity(){
+class  Registro : AppCompatActivity(){
 
     private val auth = FirebaseAuth.getInstance()
     private val basedeDatos = Firebase.firestore
@@ -89,13 +89,14 @@ class Registro : AppCompatActivity(){
                             .addOnSuccessListener {
                                 //Meto la foto directamente en la variable
                                 val foto =
-                                    "https://firebasestorage.googleapis.com/v0/b/restaurante-358d8.appspot.com/o/ImagenesPerfil%2FManuxo%2FManuxo?alt=media&token=afbf0881-2f77-4da4-84ae-942e040a4cd9"
+                                    "https://firebasestorage.googleapis.com/v0/b/restaurante-358d8.appspot.com/o/ImagenesPerfil%2Finicionsesion.png?alt=media&token=644226ed-846b-46b7-9e04-543e8b6d5149"
                                 //Creo el objeto que voy a enviar a la base de datos
                                 val usuario: Usuario =
-                                    Usuario(nombre, null, email, usuarioId, contrasena, foto,"Hamburguesa es mi segundo nombre")
-                                //Creo la coleccion que va a haber en la base de datos que se va a llamar usuarios , un documento que su id va a ser el nickname, y el objeto usuario lo meto a la base de datos
+                                    Usuario(nombre, null, email, usuarioId, contrasena, foto,"")
+                                //Creo la coleccion que va a haber en la base de datos que se va a llamar usuarios ,
+                                //un documento que su id va a ser el nickname, y el objeto usuario lo meto a la base de datos
                                 basedeDatos.collection("Users").document(usuarioId).set(usuario)
-                                //Aqui lo que hago es si esta bien, el registro, (tuve un problema que no me cogia el displayName del que esta iniciado sesion)
+                                //Aqui lo que hago es si esta bien, el registro,
                                 //Actualizo el perfil y le doy valor al displayName ya que me daba valor null
                                 val cambiarNick = userProfileChangeRequest {
                                     displayName = usuarioId

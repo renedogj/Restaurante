@@ -80,7 +80,6 @@ class MyDrinkAdapter (
         val userCart = FirebaseDatabase.getInstance()
             .getReference("Cart")
             .child("UNIQUE_USER_ID")
-
         userCart.child(drinkModel.key!!)
             .addListenerForSingleValueEvent(object:ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -98,7 +97,6 @@ class MyDrinkAdapter (
                                 cartListener.onLoadCartFailed("Añadido a carrito con éxito")
                             }
                             .addOnFailureListener{e-> cartListener.onLoadCartFailed(e.message)}
-
                     }else{//Si el item no esta en carrito, añadir uno nuevo
                         val cartModel = CartModel()
                         cartModel.key = drinkModel.key
@@ -115,17 +113,13 @@ class MyDrinkAdapter (
                                 cartListener.onLoadCartFailed("Añadido a carrito con éxito")
                             }
                             .addOnFailureListener{e-> cartListener.onLoadCartFailed(e.message)}
-
                     }
-
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     cartListener.onLoadCartFailed(error.message)
                 }
-
             })
-
     }
 
     override fun getItemCount(): Int {
